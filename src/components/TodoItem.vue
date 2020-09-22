@@ -1,7 +1,7 @@
 <template>
   <div class="todo-item" v-bind:class="{'is-complete':todo.completed}">
     <p>
-      <input type="checkbox" v-on:change="markComplete" />
+      <input type="checkbox" v-on:change="markComplete" v-model="todo.completed" />
       {{todo.title}}
       <button class="del" @click="$emit('del-todo', todo.id)">x</button>
     </p>
@@ -22,13 +22,16 @@ export default {
 
 <style scoped>
 .todo-item {
-  background: #f4f4f4;
+  background: #6200ee;
+  margin-bottom: 5px;
   padding: 10px;
-  border-bottom: 1px #ccc dotted;
+  min-height: 5rem;
+  color: aliceblue;
 }
 
 .is-complete {
   text-decoration: line-through;
+  color: #000;
 }
 
 .del {
